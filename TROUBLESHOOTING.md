@@ -104,7 +104,7 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: risk-management-db
-      - name: risk-management-uaa
+      - name: risk-management-auth
 
   - name: risk-management-db-deployer
     type: hdb
@@ -133,7 +133,7 @@ modules:
           name: srv-api # this is a name which must be used in xs-app.json as well
           url: ~{srv-url}
           forwardAuthToken: true
-      - name: risk-management-uaa
+      - name: risk-management-auth
 
 resources:
   - name: risk-management-db
@@ -144,7 +144,7 @@ resources:
     properties:
       hdi-service-name: ${service-name}
 
-  - name: risk-management-uaa
+  - name: risk-management-auth
     type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
